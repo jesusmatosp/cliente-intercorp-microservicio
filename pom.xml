@@ -109,7 +109,7 @@
 		<repository>
 			<id>jmp-nexus-repository</id>
 			<name>JMP Corporate Repository</name>
-			<url>http://54.147.168.239:8081/nexus/content/repositories/snapshots</url>
+			<url>http://18.234.44.164:8081/nexus/content/repositories/snapshots</url>
 		</repository>
 	</repositories>
 </project>
