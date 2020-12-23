@@ -107,10 +107,6 @@
 	</build>
 	<repositories>
 		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
-		</repository>
-		<repository>
 			<id>jmp-nexus-repository</id>
 			<name>JMP Corporate Repository</name>
 			<url>http://54.147.168.239:8081/nexus/content/repositories/snapshots</url>
