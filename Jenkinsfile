@@ -14,9 +14,9 @@ pipeline {
             }
         }
 
-        stage ('Build') {
+        stage ('Test With Maven') {
             steps {
-                echo 'This is a minimal pipeline.'
+                sh "mvn clean compile test"
             }
         }
     }
