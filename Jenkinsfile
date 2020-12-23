@@ -11,7 +11,7 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
-        stage('Create docker image) {
+        stage('Create docker image') {
         	steps {
         		echo "Creando imagen"
         	}
