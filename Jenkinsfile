@@ -51,9 +51,9 @@ pipeline {
         
         stage ('Deploy') {
 	        steps {
-	            sh 'scp deploy.sh ${REMOTE_USER}@${REMOTE_HOST}:~/'
-	            sh 'ssh ${REMOTE_USER}@${REMOTE_HOST} "chmod +x deploy.sh"'
-	            sh 'ssh ${REMOTE_USER}@${REMOTE_HOST} ./deploy.ssh $BUILD_NUMBER'
+	            sh 'scp ~/home/intercorp.pem deploy.sh ${REMOTE_USER}@${REMOTE_HOST}:~/'
+	            sh 'ssh ~/home/intercorp.pem ${REMOTE_USER}@${REMOTE_HOST} "chmod +x deploy.sh"'
+	            sh 'ssh ~/home/intercorp.pem ${REMOTE_USER}@${REMOTE_HOST} ./deploy.ssh $BUILD_NUMBER'
 	        }
 	    }
     }
