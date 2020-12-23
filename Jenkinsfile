@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
     	registry = "jesusmatosp/microservice-cliente-intercorp"
-    	registryCredentials = 'docker-jmp-cred"
+    	registryCredentials = 'docker-jmp-cred'
     	dockerImage = ''
     }
     tools { 
