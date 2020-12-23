@@ -48,5 +48,13 @@ pipeline {
         		sh "docker rmi $registry:$BUILD_NUMBER"
         	}
         }
+        
+        stage ('Deploy') {
+	        steps {
+	            sh 'scp deploy.sh ${REMOTE_USER}@${REMOTE_HOST} $BUILD_NUMBER:~/'
+	            sh 'ssh ${REMOTE_USER}@${REMOTE_HOST} "chmod +x deploy.sh"'
+	            sh 'ssh ${REMOTE_USER}@${REMOTE_HOST} ./deploy.ssh $BUILD_NUMBER'
+	        }
+	    }
     }
 }
