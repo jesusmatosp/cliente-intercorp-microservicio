@@ -8,7 +8,6 @@ pipeline {
     tools { 
         maven 'maven_jenkins' 
         jdk 'java_jenkins' 
-        docker 'docker_jenkins'
     }
     stages {
         stage ('Initialize') {
