@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+    agent none
     stages {
-        stage('build') {
+        stage('test') {
             steps {
-                sh 'mvn --version'
+                sh "mvn clean compile test"
             }
         }
     }
