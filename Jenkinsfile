@@ -46,8 +46,13 @@ pipeline {
         stage ('Remove unused docker image') {
         	steps {
         		sh "docker rmi $registry:$BUILD_NUMBER"
-        		env.TAG_MICROSERVICE_CLIENTE = $BUILD_NUMBER
         	}
+        }
+        
+        stage("Setting Tag") {
+        	script {
+                    env.TAG_MICROSERVICE_CLIENTE = ":$BUILD_NUMBER"
+            }
         }
         
     }
