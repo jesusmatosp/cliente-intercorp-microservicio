@@ -15,7 +15,6 @@ pipeline {
                 sh '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
-                    echo "TAG_MICROSERVICE_CLIENTE = ${BUILD_NUMBER}"
                 ''' 
             }
         }
@@ -47,6 +46,7 @@ pipeline {
         stage ('Remove unused docker image') {
         	steps {
         		sh "docker rmi $registry:$BUILD_NUMBER"
+        		env.TAG_MICROSERVICE_CLIENTE = $BUILD_NUMBER
         	}
         }
         
