@@ -51,9 +51,11 @@ pipeline {
         
         stage("Setting Tag") {
          	steps {
+         	    
 	        	script {
 	                    env.TAG_MICROSERVICE_CLIENTE = ":$BUILD_NUMBER"
 	            }
+	            echo "env.TAG_MICROSERVICE_CLIENTE is '${TAG_MICROSERVICE_CLIENTE}'" 
 	        }
         }
         
