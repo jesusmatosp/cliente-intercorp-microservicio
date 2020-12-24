@@ -50,9 +50,11 @@ pipeline {
         }
         
         stage("Setting Tag") {
-        	script {
-                    env.TAG_MICROSERVICE_CLIENTE = ":$BUILD_NUMBER"
-            }
+         	steps {
+	        	script {
+	                    env.TAG_MICROSERVICE_CLIENTE = ":$BUILD_NUMBER"
+	            }
+	        }
         }
         
     }
