@@ -51,7 +51,7 @@ pipeline {
         
         stage ('Deploy To AWS') {
 	        steps {
-	            sh 'scp -i "/home/intercorp.pem" ec2-user@18.234.44.164 ./deploy.sh ${REMOTE_USER}@${REMOTE_HOST}:/home/ec2-user/deploy.sh'
+	            sh 'scp -i "/home/ec2-user/intercorp.pem" ec2-user@18.234.44.164 ./deploy.ssh ${REMOTE_USER}@${REMOTE_HOST}:/home/ec2-user'
 	            sh 'ssh -i "/home/intercorp.pem" ${REMOTE_USER}@${REMOTE_HOST} "chmod +x deploy.sh"'
 	            sh 'ssh -i "/home/intercorp.pem" ${REMOTE_USER}@${REMOTE_HOST} ./deploy.ssh $BUILD_NUMBER'
 	        }
