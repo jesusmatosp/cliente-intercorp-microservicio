@@ -4,6 +4,7 @@ pipeline {
     	registry = "jesusmatosp/microservice-cliente-intercorp"
     	registryCredentials = 'docker-jmp-cred'
     	dockerImage = ''
+    	TAG_MICROSERVICE_CLIENTE = '23'
     }
     tools { 
         maven 'maven_jenkins' 
@@ -53,7 +54,7 @@ pipeline {
          	steps {
          	    
 	        	script {
-	                    env.TAG_MICROSERVICE_CLIENTE = ":$BUILD_NUMBER"
+	                    env.TAG_MICROSERVICE_CLIENTE = "$BUILD_NUMBER"
 	            }
 	            echo "env.TAG_MICROSERVICE_CLIENTE is '${TAG_MICROSERVICE_CLIENTE}'" 
 	        }
