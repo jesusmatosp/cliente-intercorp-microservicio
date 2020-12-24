@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.intercorp.jmp.dto.CustomerDTO;
 import com.intercorp.jmp.dto.CustomerKPIDTO;
@@ -42,6 +44,7 @@ public class CustomerRestController {
 	 * @return ResponseEntity<CustomerDTO>
 	 * 
 	 * **/
+	@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 	@PostMapping("/creacliente")
 	public ResponseEntity<CustomerResponse> createCustomer(@Validated @RequestBody CustomerDTO customer) {
 		ResponseEntity<CustomerResponse> response = null;
@@ -68,6 +71,7 @@ public class CustomerRestController {
 	 * @return ResponseEntity<CustomerDTO>
 	 *  
 	 * */
+	@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 	@GetMapping("/listclientes")
 	public ResponseEntity<CustomerResponse> listCustomers() {
 		ResponseEntity<CustomerResponse> response = null;
@@ -97,6 +101,7 @@ public class CustomerRestController {
 	 * @return Response Entity
 	 * 
 	 * **/
+	@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 	@GetMapping("/kpiclientes")
 	public ResponseEntity<CustomerResponse> getCustomerKPI() {
 		ResponseEntity<CustomerResponse> response = null;

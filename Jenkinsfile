@@ -29,7 +29,7 @@ pipeline {
         stage ('Building Image') {
         	steps {
         		script {
-        			dockerImage = docker.build registry + ":$BUILD_NUMBER"
+        			dockerImage = docker.build registry + "latest"
         		}
         	}
         }
@@ -46,18 +46,8 @@ pipeline {
         
         stage ('Remove unused docker image') {
         	steps {
-        		sh "docker rmi $registry:$BUILD_NUMBER"
+        		sh "docker rmi $registry:latest"
         	}
-        }
-        
-        stage("Setting Tag") {
-         	steps {
-         	    
-	        	script {
-	                    env.TAG_MICROSERVICE_CLIENTE = "$BUILD_NUMBER"
-	            }
-	            echo "env.TAG_MICROSERVICE_CLIENTE is '${TAG_MICROSERVICE_CLIENTE}'" 
-	        }
         }
         
     }
